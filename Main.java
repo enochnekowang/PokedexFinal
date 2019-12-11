@@ -10,7 +10,7 @@ public class Main {
             int userselection;
 
             System.out.println("Please select a Pokemon ID number");
-            Scanner input = new Scanner;
+            Scanner input = new Scanner(System.in);
             userselection = input.nextInt();
             MyPokedex.GetPokemon(userselection);
 
