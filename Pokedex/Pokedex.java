@@ -26,6 +26,29 @@ public class Pokedex {
         Ivysaur.Weakness.add(Pokemon_Weakness.Psychic);
         PokemonList.add(Ivysaur);
 
+        Pokemon Venusaur = new Pokemon("Venusaur", 3);
+        Venusaur.Types.add(Pokemon_Type.Grass);
+        Venusaur.Types.add(Pokemon_Type.Poison);
+        Venusaur.Weakness.add(Pokemon_Weakness.Fire);
+        Venusaur.Weakness.add(Pokemon_Weakness.Flying);
+        Venusaur.Weakness.add(Pokemon_Weakness.Ice);
+        Venusaur.Weakness.add(Pokemon_Weakness.Psychic);
+        PokemonList.add(Venusaur);
+
+        Pokemon Charmander = new Pokemon("Charmander", 4);
+        Charmander.Types.add(Pokemon_Type.Fire);
+        Charmander.Weakness.add(Pokemon_Weakness.Ground);
+        Charmander.Weakness.add(Pokemon_Weakness.Rock);
+        Charmander.Weakness.add(Pokemon_Weakness.Water);
+        PokemonList.add(Charmander);
+
+        Pokemon Charmeleon = new Pokemon("Charmeleon", 5);
+        Charmeleon.Types.add(Pokemon_Type.Fire);
+        Charmeleon.Weakness.add(Pokemon_Weakness.Ground);
+        Charmeleon.Weakness.add(Pokemon_Weakness.Rock);
+        Charmeleon.Weakness.add(Pokemon_Weakness.Water);
+
+
     }
 
     void GetPokemon(String Pokename){
