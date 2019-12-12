@@ -9,18 +9,26 @@ public class Main {
         Pokedex MyPokedex = new Pokedex();
         String userselection = "" ;
 
-        while(!userselection.equals("end")) {
+        while((!userselection.equals("end") || userselection.equals("End"))) {
             System.out.println("Please Enter a Pokemon ID Number");
             Scanner input = new Scanner(System.in);
             userselection = input.nextLine();
-            if (userselection.equals("end")) {
+            if (userselection.equals("end") || userselection.equals("End") ) {
                 break;
             }
             try {
                 int result = Integer.parseInt(userselection);
-                MyPokedex.GetPokemon(result);
+                try {
+                    MyPokedex.GetPokemon(result);
+                }catch(PokemonNotFound nfid){
+                    System.out.println(nfid);
+                }
             }catch(NumberFormatException e){
-                MyPokedex.GetPokemon(userselection);
+                try {
+                    MyPokedex.GetPokemon(userselection);
+                }catch(PokemonNotFound nfname){
+                    System.out.println(nfname);
+                }
             }
             System.out.println("");
             System.out.println("");
