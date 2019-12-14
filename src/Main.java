@@ -20,7 +20,7 @@ public class Main {
             input = new Scanner(System.in);
             userint = input.nextInt();
             if (userint == 1) {
-                System.out.println("Please Enter a Pokemon ID Number");
+                System.out.println("Please Enter a Pokemon ID Number or Name");
                 input = new Scanner(System.in);
                 userselection = input.nextLine();
                 try {

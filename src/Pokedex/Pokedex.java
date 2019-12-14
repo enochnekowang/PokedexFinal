@@ -347,7 +347,9 @@ public class Pokedex {
                 for (int y = 0; y < PokemonList.get(i).Weakness.size(); y++) {
                     System.out.printf("%s, ", PokemonList.get(i).Weakness.get(y));
                 }
-            } else if (i == PokemonList.size() - 1) {
+                break;
+            }
+            else if (i == PokemonList.size() - 1) {
                 throw new PokemonNotFound(Pokename, "Cannot find in Pokedex Pokemon Name : ");
             }
         }
@@ -371,6 +373,7 @@ public class Pokedex {
                 for (int y = 0; y < PokemonList.get(i).Weakness.size(); y++) {
                     System.out.printf("%s, ", PokemonList.get(i).Weakness.get(y));
                 }
+                break;
             }
             else if (i == PokemonList.size()-1) {
                 throw new PokemonNotFound(ID, "Cannot find in Pokedex Pokemon ID : ");
