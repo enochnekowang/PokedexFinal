@@ -53,15 +53,9 @@ public class Main {
                         UserPokemon.SetName(PokemonName);
                         valid = true;
                     }
-                }
-                System.out.print("Enter a Pokémon ID : ");
-                valid = false;
-                while(!valid) {
-                    input = new Scanner(System.in);
-                    userselection = input.nextLine();
-                    if (userselection.matches("[0-9]+")) {
-                        valid = true;
-                        UserPokemon.SetID(Integer.parseInt(userselection));
+                    else {
+                        System.out.println("Invalid Pokémon Name!");
+                        valid = false;
                     }
                 }
                 valid = false;
@@ -75,7 +69,17 @@ public class Main {
                     }
                     if (userselection.matches("[A-Za-z]+")) {
                         Pokemon_Type Type = Pokemon_Type.GetType(userselection);
-                        UserPokemon.AddType(Type);
+                        if(Type.GetType(userselection) == null){
+                            System.out.println("Invalid Type!");
+                            valid = false;
+                        }
+                        else {
+                            UserPokemon.AddType(Type);
+                        }
+                    }
+                    else {
+                        System.out.println("Invalid Type!");
+                        valid = false;
                     }
                 }
                 valid = false;
@@ -89,13 +93,27 @@ public class Main {
                     }
                     if (userselection.matches("[A-Za-z]+")) {
                         Pokemon_Weakness Weakness = Pokemon_Weakness.GetWeakness(userselection);
-                        UserPokemon.AddWeakness(Weakness);
+                        if(Pokemon_Weakness.GetWeakness(userselection) == null){
+                            System.out.println("Invalid Weakness!");
+                            valid = false;
+                        }
+                        else {
+                            UserPokemon.AddWeakness(Weakness);
+                        }
+                    }
+                    else {
+                        System.out.println("Invalid Weakness!");
+                        valid = false;
                     }
                 }
-                MyPokedex.AddPokemon(UserPokemon);
+                System.out.printf("Pokémon Added! New Pokémon ID is %d \n", MyPokedex.AddPokemon(UserPokemon));
+                System.out.println();
             }
             else if (userint == 3){
                 break;
+            }
+            else {
+                System.out.println("Invalid Selection!");
             }
         }
         System.out.println("End Test");

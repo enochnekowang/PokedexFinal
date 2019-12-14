@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Pokedex {
     ArrayList<Pokemon> PokemonList = new ArrayList<Pokemon>();
 
-    public Pokedex(){
+    public Pokedex() {
 
         // Objects of each Weakness created to allow for short hand when defining a pokemon
         Pokemon_Weakness Normal = Pokemon_Weakness.Normal;
@@ -141,7 +141,7 @@ public class Pokedex {
 
         Pokemon Kakuna = new Pokemon("Kakuna", 14);
         Kakuna.AddType(BugT, PoisonT);
-        Kakuna.AddWeakness(Fire,Flying,Psychic,Rock);
+        Kakuna.AddWeakness(Fire, Flying, Psychic, Rock);
         PokemonList.add(Kakuna);
 
         Pokemon Beedrill = new Pokemon("Beedrill", 15);
@@ -155,13 +155,13 @@ public class Pokedex {
         PokemonList.add(Pidgey);
 
         Pokemon Pidgeotto = new Pokemon("Pidgeotto", 17);
-        Pidgey.AddType(NormalT,FlyingT);
+        Pidgey.AddType(NormalT, FlyingT);
         Pidgey.AddWeakness(Electric, Ice, Rock);
         PokemonList.add(Pidgeotto);
 
         Pokemon Pidgeot = new Pokemon("Pidgeot", 18);
         Pidgeot.AddType(NormalT, FlyingT);
-        Pidgeot.AddWeakness(Electric,Ice,Rock);
+        Pidgeot.AddWeakness(Electric, Ice, Rock);
         PokemonList.add(Pidgeot);
 
         Pokemon Rattata = new Pokemon("Rattata", 19);
@@ -181,7 +181,7 @@ public class Pokedex {
 
         Pokemon Fearow = new Pokemon("Fearow", 22);
         Fearow.AddType(NormalT, FlyingT);
-        Fearow.AddWeakness(Electric,Ice,Rock);
+        Fearow.AddWeakness(Electric, Ice, Rock);
         PokemonList.add(Fearow);
 
         Pokemon Ekans = new Pokemon("Ekans", 23);
@@ -301,7 +301,7 @@ public class Pokedex {
 
         Pokemon Paras = new Pokemon("Paras", 46);
         Paras.AddType(BugT, GrassT);
-        Paras.AddWeakness(Fire,Flying,Bug,Ice,Poison);
+        Paras.AddWeakness(Fire, Flying, Bug, Ice, Poison);
         Paras.AddWeakness(Rock);
         PokemonList.add(Paras);
 
@@ -313,7 +313,7 @@ public class Pokedex {
 
         Pokemon Venonat = new Pokemon("Venonat", 48);
         Venonat.AddType(BugT, PoisonT);
-        Venonat.AddWeakness(Fire,Flying,Psychic,Rock);
+        Venonat.AddWeakness(Fire, Flying, Psychic, Rock);
         PokemonList.add(Venonat);
 
         Pokemon Venomoth = new Pokemon("Venomoth", 49);
@@ -328,54 +328,60 @@ public class Pokedex {
 
         Pokemon Dugtrio = new Pokemon("Dugtrio", 51);
         Dugtrio.AddType(GroundT);
-        Dugtrio.AddWeakness(Grass,Ice,Water);
+        Dugtrio.AddWeakness(Grass, Ice, Water);
         PokemonList.add(Dugtrio);
 
     }
 
-    public void GetPokemon(String Pokename) throws PokemonNotFound{
-        for (int i = 0; i<PokemonList.size();i++){
-            if(Pokename.equals(PokemonList.get(i).Name)){
+    public void GetPokemon(String Pokename) throws PokemonNotFound {
+        for (int i = 0; i < PokemonList.size(); i++) {
+            if (Pokename.equals(PokemonList.get(i).Name)) {
                 System.out.printf("Pokemon Number       : %d \n", PokemonList.get(i).PokeID);
                 System.out.printf("Pokemon Name         : %s \n", PokemonList.get(i).Name);
                 System.out.printf("Pokemon Types        : ");
-                for(int y = 0; y<PokemonList.get(i).Types.size();y++){
-                    System.out.printf("%s, ",PokemonList.get(i).Types.get(y));
+                for (int y = 0; y < PokemonList.get(i).Types.size(); y++) {
+                    System.out.printf("%s, ", PokemonList.get(i).Types.get(y));
                 }
                 System.out.println();
                 System.out.printf("Pokemon Weaknesses   : ");
-                for(int y = 0; y<PokemonList.get(i).Weakness.size();y++){
-                    System.out.printf("%s, ",PokemonList.get(i).Weakness.get(y));
+                for (int y = 0; y < PokemonList.get(i).Weakness.size(); y++) {
+                    System.out.printf("%s, ", PokemonList.get(i).Weakness.get(y));
                 }
-            }
-            else if (i == PokemonList.size()-1){
+            } else if (i == PokemonList.size() - 1) {
                 throw new PokemonNotFound(Pokename, "Cannot find in Pokedex Pokemon Name : ");
             }
         }
     }
 
-    public void GetPokemon(int ID) throws PokemonNotFound{
-        for (int i = 0; i<PokemonList.size();i++){
-            if(ID == PokemonList.get(i).PokeID){
+    public void GetPokemon(int ID) throws PokemonNotFound {
+        if(ID > PokemonList.size()){
+            System.out.println("ID Out of bounds!");
+            System.out.printf("Index range is 1-%d\n",PokemonList.size());
+        }
+        for (int i = 0; i < PokemonList.size(); i++) {
+            if (ID == PokemonList.get(i).PokeID) {
                 System.out.printf("Pokemon Number       : %d \n", PokemonList.get(i).PokeID);
                 System.out.printf("Pokemon Name         : %s \n", PokemonList.get(i).Name);
                 System.out.printf("Pokemon Types        : ");
-                for(int y = 0; y<PokemonList.get(i).Types.size();y++){
-                    System.out.printf("%s, ",PokemonList.get(i).Types.get(y));
+                for (int y = 0; y < PokemonList.get(i).Types.size(); y++) {
+                    System.out.printf("%s, ", PokemonList.get(i).Types.get(y));
                 }
                 System.out.println();
                 System.out.printf("Pokemon Weaknesses   : ");
-                for(int y = 0; y<PokemonList.get(i).Weakness.size();y++){
-                    System.out.printf("%s, ",PokemonList.get(i).Weakness.get(y));
+                for (int y = 0; y < PokemonList.get(i).Weakness.size(); y++) {
+                    System.out.printf("%s, ", PokemonList.get(i).Weakness.get(y));
                 }
             }
-            if(i == PokemonList.size()){
+            else if (i == PokemonList.size()-1) {
                 throw new PokemonNotFound(ID, "Cannot find in Pokedex Pokemon ID : ");
             }
         }
     }
-    public void AddPokemon(Pokemon Poke){
+
+    public int AddPokemon(Pokemon Poke) {
         PokemonList.add(Poke);
+        PokemonList.get(PokemonList.size()-1).PokeID = PokemonList.size();
+        return PokemonList.size();
     }
 }
 
