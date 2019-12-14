@@ -3,6 +3,7 @@ package Pokedex;
 import Pokedex.*;
 import java.lang.String;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Pokedex {
     ArrayList<Pokemon> PokemonList = new ArrayList<Pokemon>();
@@ -330,7 +331,6 @@ public class Pokedex {
         Dugtrio.AddWeakness(Grass,Ice,Water);
         PokemonList.add(Dugtrio);
 
-
     }
 
     public void GetPokemon(String Pokename) throws PokemonNotFound{
@@ -348,13 +348,13 @@ public class Pokedex {
                     System.out.printf("%s, ",PokemonList.get(i).Weakness.get(y));
                 }
             }
-            if(i == PokemonList.size()-1){
+            else if (i == PokemonList.size()-1){
                 throw new PokemonNotFound(Pokename, "Cannot find in Pokedex Pokemon Name : ");
             }
         }
     }
 
-     public void GetPokemon(int ID) throws PokemonNotFound{
+    public void GetPokemon(int ID) throws PokemonNotFound{
         for (int i = 0; i<PokemonList.size();i++){
             if(ID == PokemonList.get(i).PokeID){
                 System.out.printf("Pokemon Number       : %d \n", PokemonList.get(i).PokeID);
@@ -369,13 +369,13 @@ public class Pokedex {
                     System.out.printf("%s, ",PokemonList.get(i).Weakness.get(y));
                 }
             }
-            if(i == PokemonList.size()-1){
+            if(i == PokemonList.size()){
                 throw new PokemonNotFound(ID, "Cannot find in Pokedex Pokemon ID : ");
             }
         }
     }
-
-
-
+    public void AddPokemon(Pokemon Poke){
+        PokemonList.add(Poke);
+    }
 }
 
